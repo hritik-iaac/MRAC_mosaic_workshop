@@ -17,13 +17,13 @@ from move_group_utils.move_group_utils import (MoveGroupUtils, make_mesh,
 from pilz_robot_program.pilz_robot_program import (Lin, Ptp, Sequence,
                                                    SequencePlanningError)
 
-PATH = '/home/v/segmented_shards_24_02_15_22_31/'
+PATH = '/home/hritik/segmented_shards_28_02_17_36_45/'
 SIM = False
 ATTACH = True
 COLORMAP = plt.cm.get_cmap('tab20')
 
 # motion parameters
-HOME = (0.0, -pi/2.0, pi/2.0, -pi, -pi/2, 0)
+HOME = (-pi, -pi/2.0, pi/2.0, -pi, -pi/2, 0)
 APPROACH_OFFSET = 0.08
 BLEND = 0.070
 PICK_VEL = 0.1
@@ -53,7 +53,7 @@ def load_shard_data(dir_path: str, frame_id: str
                      float(data['shards']['shard_' +
                                           str(i)]['pick']['position']['y']),
                      float(data['shards']['shard_' +
-                                          str(i)]['pick']['position']['z']),
+                                          str(i)]['pick']['position']['z']+0.01),
                      float(data['shards']['shard_' +
                                           str(i)]['pick']['quaternion']['x']),
                      float(data['shards']['shard_' +

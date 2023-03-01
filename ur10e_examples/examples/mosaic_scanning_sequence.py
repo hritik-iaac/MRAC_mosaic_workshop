@@ -16,17 +16,16 @@ from move_group_utils.move_group_utils import (MoveGroupUtils,
                                                publish_trajectory_markers)
 from pilz_robot_program.pilz_robot_program import Lin, Ptp, Sequence
 
-
 # motion parameters
 # --------------------------------------------
 
 # left side of table
-HOME = (0.0, -pi/2.0, pi/2.0, 0, pi/2, pi)
-TP_PATH = '/dev_ws/src/ur10e_examples/toolpaths/mosaic_scan_L.yaml'
-
-# # right side of table
-# HOME = (-pi, -pi/2.0, pi/2.0, 0, pi/2, pi)
+# HOME = (0.0, -pi/2.0, pi/2.0, 0, pi/2, pi)
 # TP_PATH = '/dev_ws/src/ur10e_examples/toolpaths/mosaic_scan_R.yaml'
+
+# right side of table
+HOME = (-pi, -pi/2.0, pi/2.0, 0, pi/2, pi)
+TP_PATH = '/dev_ws/src/ur10e_examples/toolpaths/mosaic_scan_R.yaml'
 
 MOVE_VEL = 0.5
 MOVE_ACC = 0.5
@@ -37,7 +36,7 @@ BLEND = 0.01
 # reconstruction parameters
 # --------------------------------------------
 SCAN = True
-OUTPUT_DIR = '/home/v/'
+OUTPUT_DIR = '/home/hritik/'
 
 
 def gen_recon_msg(path: str = OUTPUT_DIR) -> Tuple[StartReconstructionRequest,
@@ -91,6 +90,14 @@ def robot_program():
     # move home
     if not mgi.plan_and_execute(Ptp(goal=HOME, vel_scale=MOVE_VEL, acc_scale=MOVE_ACC)):
         return rospy.logerr('robot program: failed to move home')
+
+    test_pose = Pose(position=Point(-0.55, 0.1, 0.08),
+                     orientation=Quaternion(0, 1.0, 0.0, 0.0))
+
+    # if not mgi.plan_and_execute(Ptp(goal=test_pose, vel_scale=MOVE_VEL, acc_scale=MOVE_ACC)):
+    #     return rospy.logerr('robot program: failed to move home')
+
+    # return
 
     # move approach
     if not mgi.plan_and_execute(Ptp(goal=poses[0], vel_scale=MOVE_VEL, acc_scale=MOVE_ACC)):
