@@ -17,9 +17,9 @@ from move_group_utils.move_group_utils import (MoveGroupUtils, make_mesh,
 from pilz_robot_program.pilz_robot_program import (Lin, Ptp, Sequence,
                                                    SequencePlanningError)
 
-PATH = '/home/hritik/segmented_shards_28_02_17_36_45/'
+PATH = '/home/hritik/Downloads/new picknplace_02/'
 SIM = False
-ATTACH = True
+ATTACH = False
 COLORMAP = plt.cm.get_cmap('tab20')
 
 # motion parameters
@@ -53,7 +53,7 @@ def load_shard_data(dir_path: str, frame_id: str
                      float(data['shards']['shard_' +
                                           str(i)]['pick']['position']['y']),
                      float(data['shards']['shard_' +
-                                          str(i)]['pick']['position']['z']+0.01),
+                                          str(i)]['pick']['position']['z']),
                      float(data['shards']['shard_' +
                                           str(i)]['pick']['quaternion']['x']),
                      float(data['shards']['shard_' +

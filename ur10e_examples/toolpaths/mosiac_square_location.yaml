@@ -15,17 +15,17 @@ path:
 #    quaternion: [0, 1.0, 0.0, 0.0]
 
  - pose_id: 0
-   position: [-0.9, -0.15, 0.08]
+   position: [-0.95, -0.15, 0.08]
    quaternion: [0, 1.0, 0.0, 0.0]
  - pose_id: 1
-   position: [-0.9, 0.15, 0.08]
+   position: [-0.95, 0.15, 0.08]
    quaternion: [0, 1.0, 0.0, 0.0]
  - pose_id: 2
-   position: [-1.2, 0.15, 0.08]
+   position: [-1.25, 0.15, 0.08]
    quaternion: [0, 1.0, 0.0, 0.0]
  - pose_id: 3
-   position: [-1.2, -0.15, 0.08]
+   position: [-1.25, -0.15, 0.08]
    quaternion: [0, 1.0, 0.0, 0.0]
  - pose_id: 4
-   position: [-0.9, -0.15, 0.08]
+   position: [-0.95, -0.15, 0.08]
    quaternion: [0, 1.0, 0.0, 0.0]
