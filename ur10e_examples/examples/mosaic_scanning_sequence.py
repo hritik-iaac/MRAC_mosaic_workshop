@@ -21,7 +21,7 @@ from pilz_robot_program.pilz_robot_program import Lin, Ptp, Sequence
 
 # left side of table
 # HOME = (0.0, -pi/2.0, pi/2.0, 0, pi/2, pi)
-# TP_PATH = '/dev_ws/src/ur10e_examples/toolpaths/mosaic_scan_R.yaml'
+# TP_PATH = '/dev_ws/src/ur10e_examples/toolpaths/mosaic_scan_L.yaml'
 
 # right side of table
 HOME = (-pi, -pi/2.0, pi/2.0, 0, pi/2, pi)
@@ -53,7 +53,7 @@ def gen_recon_msg(path: str = OUTPUT_DIR) -> Tuple[StartReconstructionRequest,
     start_srv_req.tsdf_params.min_box_values = Vector3(x=0.0, y=0.0, z=0.0)
     start_srv_req.tsdf_params.max_box_values = Vector3(x=0.0, y=0.0, z=0.0)
     start_srv_req.rgbd_params.depth_scale = 1000
-    start_srv_req.rgbd_params.depth_trunc = 0.15
+    start_srv_req.rgbd_params.depth_trunc = 0.8
     start_srv_req.rgbd_params.convert_rgb_to_intensity = False
 
     stop_srv_req = StopReconstructionRequest()

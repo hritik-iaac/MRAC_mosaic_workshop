@@ -354,10 +354,10 @@ def segment_shards_cuda(input_path: str,
 
 if __name__ == '__main__':
 
-    segment_shards(input_path='/home/hritik/03_01_14_19.ply',
+    segment_shards(input_path='/home/hritik/03_01_18_13.ply',
                    path_output='/home/hritik/shards',
                    output=True,
-                   num_shards=16,
+                   num_shards=67,
                    vis=True,
                    ground_plane_threshold=0.002,
                    cluster_eps=0.01,
