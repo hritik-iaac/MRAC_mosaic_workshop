@@ -39,7 +39,7 @@ def segment_shards(input_path: str,
 
     # segment ground plane
     # ----------------
-    plane, pcd, pq = segment_plane(pcd, ground_plane_threshold)
+    plane, pd, pq = segment_plane(pcd, ground_plane_threshold)
     if output:
         log = {'shards': {'ground_plane': {}}}
         log['shards']['ground_plane'] = pq
@@ -48,6 +48,8 @@ def segment_shards(input_path: str,
     if vis:
         plane.paint_uniform_color([1, 0, 0])
         o3d.visualization.draw_geometries([pcd, plane])
+
+    
 
     # cluster
     # ----------------
@@ -214,7 +216,7 @@ def segment_shards_cuda(input_path: str,
     # clusters, l = segment_clusters_t(outliers, cluster_eps, cluster_min_points)
 
     clusters, l = segment_clusters(
-        outliers.to_legacy(), cluster_eps, cluster_min_points)
+        pcd.to_legacy(), cluster_eps, cluster_min_points)
     clusters = clusters[:num_shards]
     clusters = [o3d.t.geometry.PointCloud.from_legacy(
         cluster) for cluster in clusters]
@@ -354,13 +356,13 @@ def segment_shards_cuda(input_path: str,
 
 if __name__ == '__main__':
 
-    segment_shards(input_path='/home/hritik/03_01_18_13.ply',
+    segment_shards(input_path='/home/hritik/03_01_19_28.ply',
                    path_output='/home/hritik/shards',
                    output=True,
                    num_shards=67,
                    vis=True,
                    ground_plane_threshold=0.002,
-                   cluster_eps=0.01,
+                   cluster_eps=0.009,
                    cluster_min_points=200,
                    cluster_plane_threshold=0.002
                    )

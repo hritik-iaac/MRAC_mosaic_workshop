@@ -31,7 +31,7 @@ MOVE_VEL = 0.5
 MOVE_ACC = 0.5
 SCAN_VEL = 0.03
 SCAN_ACC = 0.005
-BLEND = 0.01
+BLEND = 0.03
 
 # reconstruction parameters
 # --------------------------------------------
@@ -53,7 +53,7 @@ def gen_recon_msg(path: str = OUTPUT_DIR) -> Tuple[StartReconstructionRequest,
     start_srv_req.tsdf_params.min_box_values = Vector3(x=0.0, y=0.0, z=0.0)
     start_srv_req.tsdf_params.max_box_values = Vector3(x=0.0, y=0.0, z=0.0)
     start_srv_req.rgbd_params.depth_scale = 1000
-    start_srv_req.rgbd_params.depth_trunc = 0.8
+    start_srv_req.rgbd_params.depth_trunc = 0.08
     start_srv_req.rgbd_params.convert_rgb_to_intensity = False
 
     stop_srv_req = StopReconstructionRequest()
