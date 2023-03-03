@@ -16,7 +16,7 @@ from move_group_utils.move_group_utils import (MoveGroupUtils,
                                                publish_trajectory_markers)
 from pilz_robot_program.pilz_robot_program import Lin, Ptp, Sequence
 
-# motion parameters
+# motion parameters 
 # --------------------------------------------
 
 # left side of table
